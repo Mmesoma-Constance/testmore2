@@ -1,0 +1,195 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <div class="oveflow-hidden">
+      <div
+        class="bg-green-800 text-white fixed w-full z-10 h-12 flex items-center"
+      >
+        <nav class="flex flex-row items-center px-5">
+          <h1 class="text-xl"><a href="index.html">&#8592;</a></h1>
+          <h1 class="px-3 uppercase font-semibold text-base">Notifications</h1>
+        </nav>
+      </div>
+
+      <!----------------------------------------------->
+
+      <div class="mx-3">
+        <div class="notificationMsgs pt-20 flex flex-col space-y-4">
+          <div id="notification1" class="border rounded-lg shadow-lg w-fit p-3">
+            <div class="text-green-800">
+              <span class="font-bold">New Disscussion Started</span> |
+              <span
+                class="self-end text-right opacity-80 font-bold font-mono"
+                id="time"
+                style="font-size: 10px"
+              ></span>
+            </div>
+
+            A new discussion titled "Breaking free from comparison" has started
+            by the group admin at Body Positivity Suppoort Group. Join the
+            conversion and share your thoughts!
+          </div>
+
+          <div id="notification2" class="border rounded-lg shadow-lg w-fit p-3">
+            <div class="text-green-800">
+              <span class="font-bold">New Friend Request</span> |
+              <span
+                class="self-end text-right opacity-80 font-bold font-mono"
+                id="time"
+                style="font-size: 10px"
+              ></span>
+            </div>
+
+            You have received a friend request from Jenny at Mental Health
+            Support Group.
+
+            <button
+              class="acceptBtn bg-green-800 bg-opacity-80 rounded-full text-white p-1.5 px-6 text-xs mt-4"
+              onclick="accept()"
+            >
+              Accept friend request
+            </button>
+            <p
+              class="connected mt-4 italic text-sm font-semibold text-green-800"
+            ></p>
+            <!---------------Don't miss out on our exclusive promotion! Enjoy 15% off each of the
+            recommended novels. Coming this Friday.--->
+          </div>
+
+          <!--------------- <div id="notification3" class="border rounded-lg shadow-lg w-fit p-3">
+            <div class="text-green-800">
+              <span class="font-bold"> Support Session Reminder</span> |
+              <span
+                class="self-end text-right opacity-80 font-bold font-mono"
+                id="time"
+                style="font-size: 10px"
+              ></span>
+            </div>
+
+            Our support session on nurturing mental well-being is scheduled for
+            tomorrow. Join us for a safe and understainding space to share and
+            connect.
+          </div>------->
+
+          <div id="notification3" class="border rounded-lg shadow-lg w-fit p-3">
+            <div class="text-green-800">
+              <span class="font-bold">Welcome to the community!</span> |
+              <span
+                class="self-end text-right opacity-80 font-bold font-mono"
+                id="time"
+                style="font-size: 10px"
+              ></span>
+            </div>
+
+            A warm welcome to our newest member Mmeso! We are thrilled to have
+            you join us.
+          </div>
+        </div>
+
+        <div class="deletedMsgs mx-auto text-center py-20">
+          <p class="">New notifications will appear here.</p>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <button
+            class="bg-green-800 rounded-full text-white p-2 px-7 text-sm bottom-0 fixed my-6"
+            id="clear"
+          >
+            Clear all notifications
+          </button>
+        </div>
+      </div>
+
+      <!--------------->
+    </div>
+
+    <script>
+      let currentTime;
+      const notification1 = document.getElementById("notification1");
+      const notification2 = document.getElementById("notification2");
+      const notification3 = document.getElementById("notification3");
+      const notification4 = document.getElementById("notification4");
+
+      const myTime = document.querySelectorAll("#time").forEach((timeBtn) => {
+        currentTime = new Date();
+        let futureTime = new Date(currentTime.getTime());
+        let hour = futureTime.getHours();
+        let minutes = futureTime.getMinutes();
+        let amPm = hour >= 12 ? " PM " : " AM ";
+        hour = hour % 12;
+        hour = hour ? hour : 12;
+
+        timeBtn.textContent =
+          hour + ":" + (minutes < 10 ? "0" : "") + minutes + "" + amPm;
+        notification1.style.display = "none";
+        notification2.style.display = "none";
+
+        setTimeout(function () {
+          notification2.style.display = "block";
+          currentTime = new Date();
+          let futureTime = new Date(currentTime.getTime());
+          let hour = futureTime.getHours();
+          let minutes = futureTime.getMinutes();
+          let amPm = hour >= 12 ? " PM " : " AM ";
+          hour = hour % 12;
+          hour = hour ? hour : 12;
+
+          timeBtn.textContent =
+            hour + ":" + (minutes < 10 ? "0" : "") + minutes + "" + amPm;
+        }, 500);
+
+        setTimeout(function () {
+          notification1.style.display = "block";
+          currentTime = new Date();
+          let futureTime = new Date(currentTime.getTime());
+          let hour = futureTime.getHours();
+          let minutes = futureTime.getMinutes();
+          let amPm = hour >= 12 ? " PM " : " AM ";
+          hour = hour % 12;
+          hour = hour ? hour : 12;
+
+          timeBtn.textContent =
+            hour + ":" + (minutes < 10 ? "0" : "") + minutes + "" + amPm;
+        }, 1000);
+      });
+
+      const notificationMsgs = document.querySelector(".notificationMsgs");
+      const deletedMsgs = document.querySelector(".deletedMsgs");
+      deletedMsgs.style.display = "none";
+      const clearMsg = document.getElementById("clear");
+      setTimeout(function () {
+        notification1.style.display = "none";
+      }, 200);
+      clearMsg.addEventListener("click", function () {
+        //   notification4.style.display = "none";
+        setTimeout(function () {
+          notification3.style.display = "none";
+        }, 100);
+        setTimeout(function () {
+          notification2.style.display = "none";
+        }, 200);
+        setTimeout(function () {
+          notification1.style.display = "none";
+        }, 300);
+        setTimeout(function () {
+          clearMsg.style.display = "none";
+        }, 400);
+        setTimeout(function () {
+          deletedMsgs.style.display = "block";
+        }, 600);
+      });
+
+      function accept() {
+        const acceptBtn = document.querySelector(".acceptBtn");
+        const connected = document.querySelector(".connected");
+        acceptBtn.style.display = "none";
+        connected.textContent = "You are now connected with Jenny!";
+      }
+    </script>
+  </body>
+</html>

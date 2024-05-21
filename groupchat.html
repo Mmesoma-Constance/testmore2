@@ -1,0 +1,376 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loneliness/Isolation Support GroupChat</title>
+    <link rel="stylesheet" href="output.css" />
+    <script
+      src="https://kit.fontawesome.com/5a0914105d.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #chat-container {
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="overflow-hidden">
+      <!-------------group name------------------>
+      <div
+        class="bg-green-900 text-white p-2 text-center mx-auto flex justify-between items-center px-4 fixed shadow w-full z-10"
+      >
+        <h1 class="flex flex-col">
+          <span class="font-semibold">Loneliness/Isolation Support Group </span>
+          <span class="text-left text-xs">152 members</span>
+        </h1>
+        <h1 class="cursor-pointer text-lg flex gap-4">
+          <span class="" id="videoChatBtn"
+            ><i class="fa-solid fa-video">a</i>
+          </span>
+          <span class="" id="moreMessageBtn">
+            <i class="fa-solid fa-ellipsis-vertical">w</i></span
+          >
+        </h1>
+      </div>
+
+      <!--------------------my input----------------------->
+
+      <div class="bottom-0 w-full flex gap-1 z-10 fixed mb-1">
+        <input
+          type="text"
+          class="inputValue w-full px-3 p-2 border ml-1 border-green-900 rounded-full"
+          placeholder="Please wait.."
+        />
+        <button
+          class="h-10 w-12 cursor-pointer rounded-full bg-green-900 text-white mr-1 flex justify-center items-center"
+          id="sendReplyBtn"
+          onclick="sendReply()"
+          disabled
+        >
+          <span class=""><i class="fa-solid fa-paper-plane"></i></span>
+        </button>
+      </div>
+      <div
+        class="text-right fixed w-full pr-10 z-10 bg-white shadow-xl pb-1.5"
+        id="videoChatMessage"
+        style="font-size: 13px; margin-top: 55px"
+      >
+        Only admin can start a video chat
+      </div>
+
+      <div
+        class="text-right fixed right-0 z-10 bg-white shadow p-2 h-20 pt-3 px-2 space-y-2 rounded-bl-md"
+        style="font-size: 15px; margin-top: 55px"
+        id="moreMessage"
+      >
+        <p class=""><a href="groupInfo.html">More about group</a></p>
+        <p class=""><a href="support.html">Exit group</a></p>
+      </div>
+      <!-------------------messages-------------------->
+      <div id="chat-container" class="mb-10">
+        <div class="mx-5 mb-7 mt-24" id="chat">
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Clare is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Clare</p>
+              <span class="text-sm"
+                >Hi everyone, welcome to our loneliness/isolation support group.
+                I'm Clare, and I'll be guiding our discussions and offering
+                support along the way. If you are new here, please take a moment
+                to introduce yourself and share a bit about your experience with
+                loneliness/isolation. This is a safe place, and we're all here
+                to support each other.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">D</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Desmond is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">D</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Desmond</p>
+              <span class="text-sm"
+                >Hi, I'm Desmond, I'm 30 years old, and I've been feeling
+                increasingly isolated since moving to a new city for work. It's
+                been challenging to make meaningful connections and combat
+                feelings of loneliness.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time1"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">A</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Angela is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">A</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Angela</p>
+              <span class="text-sm"
+                >Hi there, I'm Angela. I'm 25 years old, and I've been
+                experiencing loneliness since my divorce. It's been tough
+                adjusting to life on my own and finding ways to fill the void
+                left by the end of the marriage.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Mirabel is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Mirabel</p>
+              <span class="text-sm"
+                >Hey everyone, I'm Mirabel. I'm 24 years old. I've been
+                struggling with social anxiety for years, and it's made me feel
+                isolated. I want to connect with others, but I'm too afraid to
+                reach out or participate in social events. I feel like I'm stuck
+                in a prison of my own making, and I don't know how to escape.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time3"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Clare is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Clare</p>
+              <span class="text-sm"
+                >Thank you for sharing, Desmond, Angela, and Mirabel. Loneliness
+                and isolation can be incredibly challenging experiences, and I
+                want to commend you for reaching out for support. Know that you
+                are not alone. We're all here to support each other through the
+                ups and downs of loneliness and isolation</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Clare is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Clare</p>
+              <span class="text-sm">
+                As we continue our conversation, I encourage you to actively
+                participate, share your thoughts and experiences, and offer
+                support to your fellow members. Remember, together we can combat
+                loneliness and isolation by building connections and fostering a
+                sense of belonging.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv3"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="myReply" class="mx-5 mb-7">
+          <div class="mb-5 flex flex-row-reverse gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tl-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold text-right">Mmeso</p>
+              <span class="text-sm" id="myTextValue"></span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="myTime"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Clare is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">C</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Clare</p>
+              <span class="text-sm"
+                >That must be really tough for you. I want you to know that we
+                care about you, and we're here to support you every step of the
+                way. <br />
+                I want to express my gratitude to each of you for being part of
+                this group and your willingness to support each other on the
+                journey towards overcoming loneliness and isolation. Your
+                contributuion makes a difference. and I'm grateful for the
+                strength and resilience of this commmnunity.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeReply"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!------------------------->
+    </div>
+
+    <script src="groupchat.js"></script>
+  </body>
+</html>

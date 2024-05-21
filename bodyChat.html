@@ -1,0 +1,378 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body Positivity Support GroupChat</title>
+    <link rel="stylesheet" href="output.css" />
+    <script
+      src="https://kit.fontawesome.com/5a0914105d.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #chat-container {
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="overflow-hidden">
+      <!-------------group name------------------>
+      <div
+        class="bg-green-900 text-white p-2 text-center mx-auto flex justify-between items-center px-4 fixed shadow w-full z-10"
+      >
+        <h1 class="flex flex-col">
+          <span class="font-semibold">Body Positivity Support Group </span>
+          <span class="text-left text-xs">141 members</span>
+        </h1>
+        <h1 class="cursor-pointer text-lg flex gap-4">
+          <span class="" id="videoChatBtn"
+            ><i class="fa-solid fa-video"></i>
+          </span>
+          <span class="" id="moreMessageBtn">
+            <i class="fa-solid fa-ellipsis-vertical"></i
+          ></span>
+        </h1>
+      </div>
+
+      <!--------------------my input----------------------->
+
+      <div class="bottom-0 w-full flex gap-1 z-10 fixed mb-1">
+        <input
+          type="text"
+          class="inputValue w-full px-3 p-2 border ml-1 border-green-900 rounded-full"
+          placeholder="Please wait.."
+        />
+        <button
+          class="h-10 w-12 cursor-pointer rounded-full bg-green-900 text-white mr-1 flex justify-center items-center"
+          id="sendReplyBtn"
+          onclick="sendReply()"
+          disabled
+        >
+          <span class=""><i class="fa-solid fa-paper-plane"></i></span>
+        </button>
+      </div>
+      <div
+        class="text-right fixed w-full pr-10 z-10 bg-white shadow-xl pb-1.5"
+        id="videoChatMessage"
+        style="font-size: 13px; margin-top: 55px"
+      >
+        Only admin can start a video chat
+      </div>
+
+      <div
+        class="text-right fixed right-0 z-10 bg-white shadow p-2 h-20 pt-3 px-2 space-y-2 rounded-bl-md"
+        style="font-size: 15px; margin-top: 55px"
+        id="moreMessage"
+      >
+        <p class=""><a href="groupInfo.html">More about group</a></p>
+        <p class=""><a href="support.html">Exit group</a></p>
+      </div>
+      <!-------------------messages-------------------->
+      <div id="chat-container" class="mb-10">
+        <div class="mx-5 mb-7 mt-24" id="chat">
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Michelle is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Michelle</p>
+              <span class="text-sm"
+                >Hello everyone, welcome to our body positivity support group.
+                I'm Michelle, and I'll be facilitating our discussions and
+                offering support along the way. If you're new here, please take
+                a moment to introduce yourself and share a bit about your
+                journey with body positivity. This is a safe space, and we're
+                all here to support each other.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">E</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Emma is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">E</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Emma</p>
+              <span class="text-sm"
+                >Hi, I'm Emma. I'm 28 years old, and I've struggled with body
+                image issues for as long as I can remember. It's been
+                challenging to overcome societal pressures and embrace self-love
+                and acceptance.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time1"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">A</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Anna is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">A</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Anna</p>
+              <span class="text-sm"
+                >Hi everyone, I'm Anna. I'm 35 years old, and I've been working
+                on improving my body image and self-esteem after years of
+                struggling with disordered eating habits. It's a daily journey
+                of learning to appreciate and celebrate my body for all that it
+                is.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">S</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Sophie is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">S</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Sophie</p>
+              <span class="text-sm"
+                >Hi there, I'm Sophie. I'm 32 years old, and I've recently
+                started my journey towards body acceptance after undergoing
+                significant weight loss. It's been a process of redefining
+                beauty standards and embracing my body's uniqueness.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time3"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Michelle is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Michelle</p>
+              <span class="text-sm"
+                >Thank you for sharing, Emma, Anna, and Sophie. It takes courage
+                to open up about your experiences with body image and
+                self-esteem, and I want to commend each of you for taking this
+                step towards seeking support and empowerment. Know that you're
+                not alone in this journey. We're all here to support each other
+                through the challenges and celebrate the victories, no matter
+                how small they may seem.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Michelle is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Michelle</p>
+              <span class="text-sm">
+                As we continue our conversation, I encourage you to actively
+                participate, share your thoughts and experiences, and offer
+                support to your fellow members. Remember, together we can
+                challenge beauty standards and cultivate a culture of acceptance
+                and self-love.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv3"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="myReply" class="mx-5 mb-7">
+          <div class="mb-5 flex flex-row-reverse gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tl-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold text-right">Mmeso</p>
+              <span class="text-sm" id="myTextValue"></span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="myTime"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Michelle is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Michelle</p>
+              <span class="text-sm"
+                >That must be really tough for you. I want you to know that we
+                care about you, and we're here to support you every step of the
+                way. <br />
+                I want to express my gratitude to each of you for being part of
+                this group and your willingness to support each other on the
+                journey towards embracing body positivity. Your contributions
+                make a difference, and I'm grateful for the strength and
+                resilience of this community.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeReply"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!------------------------->
+    </div>
+
+    <script src="groupchat.js"></script>
+  </body>
+</html>

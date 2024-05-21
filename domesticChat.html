@@ -1,0 +1,377 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domestic Violence Support GroupChat</title>
+    <link rel="stylesheet" href="output.css" />
+    <script
+      src="https://kit.fontawesome.com/5a0914105d.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #chat-container {
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="overflow-hidden">
+      <!-------------group name------------------>
+      <div
+        class="bg-green-900 text-white p-2 text-center mx-auto flex justify-between items-center px-4 fixed shadow w-full z-10"
+      >
+        <h1 class="flex flex-col">
+          <span class="font-semibold">Domestic Violence Support Group </span>
+          <span class="text-left text-xs">144 members</span>
+        </h1>
+        <h1 class="cursor-pointer text-lg flex gap-4">
+          <span class="" id="videoChatBtn"
+            ><i class="fa-solid fa-video"></i>
+          </span>
+          <span class="" id="moreMessageBtn">
+            <i class="fa-solid fa-ellipsis-vertical"></i
+          ></span>
+        </h1>
+      </div>
+
+      <!--------------------my input----------------------->
+
+      <div class="bottom-0 w-full flex gap-1 z-10 fixed mb-1">
+        <input
+          type="text"
+          class="inputValue w-full px-3 p-2 border ml-1 border-green-900 rounded-full"
+          placeholder="Please wait.."
+        />
+        <button
+          class="h-10 w-12 cursor-pointer rounded-full bg-green-900 text-white mr-1 flex justify-center items-center"
+          id="sendReplyBtn"
+          onclick="sendReply()"
+          disabled
+        >
+          <span class=""><i class="fa-solid fa-paper-plane"></i></span>
+        </button>
+      </div>
+      <div
+        class="text-right fixed w-full pr-10 z-10 bg-white shadow-xl pb-1.5"
+        id="videoChatMessage"
+        style="font-size: 13px; margin-top: 55px"
+      >
+        Only admin can start a video chat
+      </div>
+
+      <div
+        class="text-right fixed right-0 z-10 bg-white shadow p-2 h-20 pt-3 px-2 space-y-2 rounded-bl-md"
+        style="font-size: 15px; margin-top: 55px"
+        id="moreMessage"
+      >
+        <p class=""><a href="groupInfo.html">More about group</a></p>
+        <p class=""><a href="support.html">Exit group</a></p>
+      </div>
+      <!-------------------messages-------------------->
+      <div id="chat-container" class="mb-10">
+        <div class="mx-5 mb-7 mt-24" id="chat">
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Prosper is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Prosper</p>
+              <span class="text-sm"
+                >Hello everyone, welcome to our domestic violence support group.
+                I'm Rachel, and I'll be facilitating our discussions and
+                providing support along the way. If you're new here, please feel
+                free to introduce yourself and share a bit about your
+                experiences with domestic Violence. This is a safe space, and
+                we're all here to support each other.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">S</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Sarah is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">S</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Sarah</p>
+              <span class="text-sm"
+                >Hi, I'm Sarah. I'm 28 years old, and I've been experiencing
+                emotional abuse from my partner for the past few years. It's
+                been difficult to recognize the signs and find the courage to
+                reach out for help.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time1"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Michael is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Michael</p>
+              <span class="text-sm"
+                >Hello everyone, I'm Michael. I'm 35 years old, and I've
+                recently left an abusive relationship with my ex-partner. It's
+                been a challenging journey to rebuild my life and regain my
+                sense of self-worth after years of manipulation and
+                control.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">E</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Emma is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">E</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Emma</p>
+              <span class="text-sm"
+                >Hi there, I'm Emma. I'm 32 years old, and I'm currently in a
+                situation where I'm experiencing both physical and emotional
+                abuse from my spouse. It's terrifying to feel trapped and unsure
+                of what steps to take next.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time3"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Prosper is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Prosper</p>
+              <span class="text-sm"
+                >Thank you for sharing, Sarah, Michael, and Emma. It takes
+                immense courage to speak up about your experiences with domestic
+                violence, and I want to commend each of you for taking this step
+                towards seeking support and healing. Know that you're not alone
+                in this journey. We're all here to support each other through
+                the challenges and provide hope for a brighter future.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Prosper is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Prosper</p>
+              <span class="text-sm">
+                As we continue our conversation, I encourage you to actively
+                participate, share your thoughts and experiences, and offer
+                support to your fellow members. Remember, together we can break
+                free from the cycle of abuse and create a life filled with
+                safety, empowerment, and hope.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv3"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="myReply" class="mx-5 mb-7">
+          <div class="mb-5 flex flex-row-reverse gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tl-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold text-right">Mmeso</p>
+              <span class="text-sm" id="myTextValue"></span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="myTime"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Prosper is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">P</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Prosper</p>
+              <span class="text-sm"
+                >That must be really tough for you. I want you to know that we
+                care about you, and we're here to support you every step of the
+                way. <br />
+                I want to express my gratitude to each of you for being part of
+                this group and your willingness to support each other on the
+                journey towards healing and recovery from domestic abuse. Your
+                contributions make a difference, and I'm grateful for the
+                strength and resilience of this community.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeReply"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!------------------------->
+    </div>
+
+    <script src="groupchat.js"></script>
+  </body>
+</html>

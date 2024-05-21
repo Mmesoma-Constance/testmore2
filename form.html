@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.supportcircle.com</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://kit.fontawesome.com/5a0914105d.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+   <div class="overflow-hidden ">
+
+
+    <nav class=" fixed top-0 w-full z-20 bg-white">
+        <div class="flex flex-row justify-between px-7 lg:px-12 pt-2 shadow-sm">
+        <div class="">
+           
+             <h1 class="text-green-700 text-2xl md:text-3xl font-serif italic p-2">
+                <i class="fa-solid fa-people-carry-box"></i>SupportCircle</h1></div>
+        <div class="">
+            <ul class="flex-row gap-4 text-lg flex">
+                   <li class="p-2 text-xl md:text-2xl text-green-700 font-bold cursor-pointer hover:text-green-800 lg:hidden"><i class="fa-solid fa-bars"></i></li>
+                    <li class=" hidden lg:flex mt-1 cursor-pointer font-semibold text-green-700 hover:text-green-700 hover:font-semibold">Home</li>
+                <li class=" hidden lg:flex mt-1 cursor-pointer text-gray-600  hover:text-green-700 hover:font-semibold">About</li>
+                <li class=" hidden lg:flex mt-1 cursor-pointer text-gray-600  hover:text-green-700 hover:font-semibold">Topics</li>
+                <li class=" hidden lg:flex mt-1 cursor-pointer text-gray-600  hover:text-green-700 hover:font-semibold">Resources</li>
+                <li class=" hidden lg:flex mt-1 cursor-pointer text-gray-600  hover:text-green-700 hover:font-semibold">Events</li>
+                <li class=" hidden lg:flex mt-1 cursor-pointer text-gray-600  hover:text-green-700 hover:font-semibold">Contact</li>
+                <li class="pl-10 hidden lg:flex"> <button class="bg-green-700 opacity-80 hover:opacity-100 text-white border-none px-7
+                     shadow rounded-md py-1 mb-4 font-mono
+                    font-semibold">SignIn</button></li>
+                
+            </ul>
+        </div>
+     </div>  
+       </nav>
+       
+
+<div class="mt-20 mx-auto h-screen">
+    <div class="flex flex-col justify-center items-center ">
+<h1 class="font-bold text-2xl py-4 text-green-700">SignIn to become a member</h1>
+<div class="flex flex-col gap-6 border-2 p-10">
+    <input type="text" id="formInput" placeholder="Enter your name" class="border border-green-700 p-3 w-80 focus:shadow-lg focus:border-green-700 rounded-full pl-7 outline-none" required maxlength="8">
+    <input type="phone" id="formInput2" placeholder="Enter your phone number" class="border border-green-700 p-3 w-80 focus:shadow-lg focus:border-green-700 rounded-full pl-7 outline-none" required >
+    <input type="email" id="formInput3" placeholder="Enter your email" class="border border-green-700 p-3 w-80 focus:shadow-lg focus:border-green-700 rounded-full pl-7 outline-none" required >
+    <input type="text" id="formInput4" placeholder="Country" class="border border-green-700 p-3 w-80 focus:shadow-lg focus:border-green-700 rounded-full pl-7 outline-none" required >
+
+</div>
+</div>
+
+<div class="float-right mt-10 pr-6 bottom-0">
+<button class="border border-green-700 p-3 px-8 hover:bg-green-700 hover:text-white" onclick="formBtn()">Next</button> 
+</div>
+</div>
+
+   </div> 
+
+   <script src="form.js">
+   </script>
+</body>
+</html>

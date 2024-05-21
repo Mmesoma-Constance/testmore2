@@ -1,0 +1,373 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Support GroupChat</title>
+    <link rel="stylesheet" href="output.css" />
+    <script
+      src="https://kit.fontawesome.com/5a0914105d.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #chat-container {
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="overflow-hidden">
+      <!-------------group name------------------>
+      <div
+        class="bg-green-900 text-white p-2 text-center mx-auto flex justify-between items-center px-4 fixed shadow w-full z-10"
+      >
+        <h1 class="flex flex-col">
+          <span class="font-semibold">Mental Health Support Group </span>
+          <span class="text-left text-xs">311 members</span>
+        </h1>
+        <h1 class="cursor-pointer text-lg flex gap-4">
+          <span class="" id="videoChatBtn"
+            ><i class="fa-solid fa-video"></i>
+          </span>
+          <span class="" id="moreMessageBtn">
+            <i class="fa-solid fa-ellipsis-vertical"></i
+          ></span>
+        </h1>
+      </div>
+
+      <!--------------------my input----------------------->
+
+      <div class="bottom-0 w-full flex gap-1 z-10 fixed mb-1">
+        <input
+          type="text"
+          class="inputValue w-full px-3 p-2 border ml-1 border-green-900 rounded-full"
+          placeholder="Please wait.."
+        />
+        <button
+          class="h-10 w-12 cursor-pointer rounded-full bg-green-900 text-white mr-1 flex justify-center items-center"
+          id="sendReplyBtn"
+          onclick="sendReply()"
+          disabled
+        >
+          <span class=""><i class="fa-solid fa-paper-plane"></i></span>
+        </button>
+      </div>
+      <div
+        class="text-right fixed w-full pr-10 z-10 bg-white shadow-xl pb-1.5"
+        id="videoChatMessage"
+        style="font-size: 13px; margin-top: 55px"
+      >
+        Only admin can start a video chat
+      </div>
+
+      <div
+        class="text-right fixed right-0 z-10 bg-white shadow p-2 h-20 pt-3 px-2 space-y-2 rounded-bl-md"
+        style="font-size: 15px; margin-top: 55px"
+        id="moreMessage"
+      >
+        <p class=""><a href="groupInfo.html">More about group</a></p>
+        <p class=""><a href="support.html">Exit group</a></p>
+      </div>
+      <!-------------------messages-------------------->
+      <div id="chat-container" class="mb-10">
+        <div class="mx-5 mb-7 mt-24" id="chat">
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Lisa is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Lisa</p>
+              <span class="text-sm"
+                >Hi everyone, welcome to our mental health support group. I'm
+                Lisa, and I'm here to facilitate our discussions and provide
+                support whenever needed. If you're new here, feel free to
+                introduce yourself and share a bit about your mental health
+                journey. Remember, this is a safe space, and we're here to
+                support each other.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">T</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Tony is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user1Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">T</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Tony</p>
+              <span class="text-sm"
+                >Hi, I'm Tony. I'm 35 years old, and I've been struggling with
+                depression for several years now. It's been really hard to find
+                motivation to get out of bed some days, and I often feel like
+                I'm just going through the motions.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time1"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">B</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Betty is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user2Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">B</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Betty</p>
+              <span class="text-sm"
+                >Hi everyone, I'm Emily. I'm 28 years old, and I've been dealing
+                with anxiety and panic attacks for as long as I can remember.
+                It's exhausting constantly feeling on edge and worrying about
+                every little thing.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Typing">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">W</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Williams is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="user3Text">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">W</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Williams</p>
+              <span class="text-sm"
+                >Hi, I'm Williams. I'm 42 years old, and I've recently been
+                diagnosed with bipolar disorder. It's been a rollercoaster of
+                emotions, and I'm still trying to come to terms with it and find
+                the right treatment plan.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="time3"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Lisa is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv2">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Lisa</p>
+              <span class="text-sm"
+                >Thank you for sharing, Tony, Betty, and Williams. It takes
+                courage to open up about your struggles, and I admire your
+                bravery. Just know that you're not alone in this journey. We're
+                all here to support each other through the highs and lows.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv2"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Lisa is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDiv3">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Lisa</p>
+              <span class="text-sm">
+                As we continue our conversation, I encourage you to actively
+                participate, share your thoughts and experiences, and offer
+                support to your fellow members. Remember, together we can
+                navigate our mental health challenges and find hope and healing
+                along the way.
+              </span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeDiv3"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="myReply" class="mx-5 mb-7">
+          <div class="mb-5 flex flex-row-reverse gap-2 text-sm" id="textDiv">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 opacity-60 flex justify-center items-center text-white"
+            >
+              <span class="">M</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tl-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold text-right">Mmeso</p>
+              <span class="text-sm" id="myTextValue"></span>
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="myTime"
+              ></p>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="typingDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-1.5 px-3 rounded-b-full rounded-tr-full w-fit pr-8"
+            >
+              <span class="">Lisa is typing...</span>
+            </div>
+          </div>
+
+          <div class="mb-5 flex flex-row gap-2 text-sm" id="textDivReply">
+            <div
+              class="h-6 w-6 rounded-full bg-green-900 flex justify-center items-center text-white"
+            >
+              <span class="">L</span>
+            </div>
+
+            <div
+              class="border p-2 px-3 rounded-b-2xl rounded-tr-2xl w-fit h-fit flex-col"
+            >
+              <p class="text-green-900 font-semibold">Lisa</p>
+              <span class="text-sm"
+                >That must be really tough for you. I want you to know that we
+                care about you, and we're here to support you every step of the
+                way. <br />
+                I want to express my gratitude to each of you for being part of
+                this group and your willingness to support each other. Your
+                contributions make a difference, and I'm grateful for the
+                strength and resilience of this community.</span
+              >
+              <p
+                class="text-xs self-end right-0 text-right opacity-80"
+                id="timeReply"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!------------------------->
+    </div>
+
+    <script src="groupchat.js"></script>
+  </body>
+</html>

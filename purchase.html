@@ -1,0 +1,207 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      @keyframes modalAnimate {
+        from {
+          opacity: 0;
+          transform: translateY(-50%, -100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(-50%, -50%);
+        }
+      }
+
+      #modal {
+        animation: modalAnimate 0.5s ease forwards;
+      }
+
+      .red-placeholder::placeholder {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overfow-hidden">
+      <div class="relative">
+        <div class="flex flex-col h-screen justify-center items-center w-full">
+          <div class="">
+            <h1 class="text-xl font-bold text-green-900">
+              Your Payment Details
+            </h1>
+          </div>
+
+          <div class="mt-7">
+            <ul class="py-4 w-full space-y-10">
+              <li class="flex flex-col">
+                <h2 class="text-sm font-semibold">CARDHOLDER NAME</h2>
+
+                <input
+                  type="text"
+                  id="inputted"
+                  class="focus:shadow-xl bg-transparent outline-none border border-x-0 border-t-0 border-b-2 border-green-800 p-1 w-[300px] md:w-[400px]"
+                  required
+                />
+                <span
+                  class="z-10 text-xs text-red-600"
+                  id="error"
+                  style="display: none"
+                  >Field can't be empty!</span
+                >
+              </li>
+              <li class="">
+                <h2 class="text-sm font-semibold">CARD NUMBER</h2>
+                <input
+                  type="number"
+                  id="inputtedNumber"
+                  class="focus:shadow-xl outline-none border border-x-0 border-t-0 border-b-2 border-green-800 p-1 w-[300px] md:w-[400px]"
+                  required
+                />
+                <span
+                  class="z-10 text-xs text-red-600"
+                  id="error2"
+                  style="display: none"
+                  >Field can't be empty!</span
+                >
+              </li>
+              <li class="flex flex-row gap-3 md:gap-12 justify-between">
+                <div class="">
+                  <h2 class="text-sm font-semibold">EXPIRATION DATE</h2>
+                  <input
+                    type="date"
+                    id="inputtedExpire"
+                    class="focus:shadow-xl outline-none border border-x-0 border-t-0 border-b-2 border-green-800 p-1 w-40 md:w-[190px]"
+                    required
+                  />
+                  <span
+                    class="z-10 text-xs text-red-600"
+                    id="error3"
+                    style="display: none"
+                    >Field can't be empty!</span
+                  >
+                </div>
+                <div class="">
+                  <h2 class="text-sm font-semibold">CW</h2>
+                  <input
+                    type="number"
+                    id="inputtedCw"
+                    class="focus:shadow-xl outline-none border border-x-0 border-t-0 border-b-2 border-green-800 p-1 w-24 md:w-[140px]"
+                    required
+                  />
+                  <span
+                    class="z-10 text-xs text-red-600"
+                    id="error4"
+                    style="display: none"
+                    >Field can't be empty!</span
+                  >
+                </div>
+              </li>
+
+              <li class="">
+                <button
+                  onclick="submit()"
+                  class="w-full uppercase bg-green-700 opacity-90 hover:opacity-100 hover:transition-all text-white border-none px-12 shadow-lg hover:shadow-2xl py-2 rounded font-semibold mt-4"
+                >
+                  PAY NOW
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="modal">
+          <div
+            class="flex fixed z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-end items-center bg-white shadow-lg"
+          >
+            <div class="w-80 md:w-96 p-10">
+              <h1 class="">
+                Your payment is currently being processed. We'll notify you
+                shortly for any further actions.
+              </h1>
+              <a href="index.html"
+                ><button
+                  onclick=""
+                  class="w-full uppercase bg-green-700 opacity-90 hover:opacity-100 hover:transition-all text-white border-none px-16 shadow-lg hover:shadow-2xl py-2 rounded font-semibold mt-7 text-sm"
+                >
+                  Go back Home
+                </button></a
+              >
+            </div>
+          </div>
+
+          <div
+            id="overlay"
+            class="fixed inset-0 bg-black opacity-40 z-10"
+          ></div>
+        </div>
+      </div>
+
+      <!----------------------------------------->
+    </div>
+
+    <script>
+      document.getElementById("modal").style.display = "none";
+
+      function submit() {
+        let inputted = document.getElementById("inputted");
+        let inputValue = inputted.value;
+        inputted.style.borderBottom = "";
+        document.getElementById("error").style.display = "none";
+
+        let inputtedNumber = document.getElementById("inputtedNumber");
+        let inputNumberValue = inputtedNumber.value;
+        document.getElementById("error2").style.display = "none";
+        inputtedNumber.style.borderBottom = "";
+
+        let inputtedExpire = document.getElementById("inputtedExpire");
+        let inputExpireValue = inputtedExpire.value;
+        document.getElementById("error3").style.display = "none";
+        inputtedExpire.style.borderBottom = "";
+
+        let inputtedCw = document.getElementById("inputtedCw");
+        let inputCwValue = inputtedCw.value;
+        document.getElementById("error4").style.display = "none";
+        inputtedCw.style.borderBottom = "";
+
+        if (inputValue === "") {
+          inputted.style.borderBottom = "2px solid red";
+          document.getElementById("error").style.display = "block";
+          inputted.focus();
+        } else if (inputNumberValue === "") {
+          inputtedNumber.style.borderBottom = "2px solid red";
+          document.getElementById("error2").style.display = "block";
+          inputtedNumber.focus();
+        } else if (
+          inputNumberValue.length < 12 ||
+          inputNumberValue.length > 12
+        ) {
+          inputtedNumber.focus();
+          inputtedNumber.style.borderBottom = "2px solid red";
+          document.getElementById("error2").style.display = "block";
+          document.getElementById("error2").innerText =
+            " Number must be 12 digits";
+        } else if (inputExpireValue === "") {
+          inputtedExpire.style.borderBottom = "2px solid red";
+          document.getElementById("error3").style.display = "block";
+          inputtedExpire.focus();
+        } else if (inputCwValue === "") {
+          inputtedCw.style.borderBottom = "2px solid red";
+          document.getElementById("error4").style.display = "block";
+          inputtedCw.focus();
+        } else if (inputCwValue.length < 3 || inputCwValue.length > 3) {
+          inputtedCw.focus();
+          inputtedCw.style.borderBottom = "2px solid red";
+          document.getElementById("error4").style.display = "block";
+          document.getElementById("error4").innerText =
+            " Number must be 3 digits";
+        } else {
+          document.getElementById("modal").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
